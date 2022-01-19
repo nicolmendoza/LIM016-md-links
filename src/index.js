@@ -5,7 +5,6 @@ import {
   verificarSiExisteRuta,
   extraerArchivos,
   findLinks,
-  findStatus,
   stats,
   statsPlus,
 } from "./functions/mdLinks-function.js";
@@ -18,20 +17,7 @@ export const mdlinks = (ruta, option) => {
       if (exits) {
         const pathsFind = extraerArchivos(newRuta2);
         const allResult = findLinks(pathsFind);
-        resolve( allResult)
-        // if (option === undefined) {
-        //   const allResult = findLinks(pathsFind);
-        //   console.log(allResult);
-        // }
-        // else if(option === "--validate"){
-        //  findStatus(allResult).then(x=>console.log(x))
-        // }
-        // else if(option==='--stats'){
-        //   findStatus(allResult).then(x=>stats(x))
-        // }
-        // else if(option==='--statsPlus'){
-        //   findStatus(allResult).then(x=>statsPlus(x))
-        // }
+        resolve(allResult);
       } else {
         reject("Error:la ruta no existe");
       }
@@ -40,4 +26,3 @@ export const mdlinks = (ruta, option) => {
     }
   });
 };
-
