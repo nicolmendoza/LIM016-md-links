@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-
+// import chalk from "chalk";
 
 
 export const verificarRutaAbsoluta = (ruta) => {
@@ -26,8 +26,6 @@ export const extraerArchivos = (newRuta2) => {
     const tipo = verificarTipo(newRuta2);
     if (tipo === ".md") {
       rutasFile.push(newRuta2);
-    } else {
-      console.log("no es un archivo md");
     }
   } else {
     const rutasPrueba = fs
@@ -41,41 +39,36 @@ export const extraerArchivos = (newRuta2) => {
 };
 
 export const findLinks = (array) => {
-  // console.log(array)
   const texto = array.map((file) => fs.readFileSync(file, "utf-8"));
-
-  var expression = /\[([^\]]*)\]\(((?:\/|https?:\/\/)[\w\d./?=#&_%~,.:-]+)\)/gm;
-  var regex = new RegExp(expression);
-  let link;
-  let text;
+  const expression = /\[([^\]]*)\]\(((?:\/|https?:\/\/)[\w\d./?=#&_%~,.:-]+)\)/gm;
+  const regex = new RegExp(expression);
 
   const allResult = [];
-  let objectFromOneLink;
-  let objectFromLink;
+
 
   texto.forEach((t, i) => {
-    let result = new Object();
-    if (t.match(regex).length > 1) {
+
+    if (t.match(regex) === null) {
+      return allResult;
+    } else if (t.match(regex).length > 1) {
       t.match(regex).forEach((v) => {
         const link = v.split("](")[1].slice(0, -1);
 
         const text = v.split("](")[0].slice(1);
 
-        objectFromLink = {
+       const objectFromLink = {
           href: link,
           text: text,
           path: array[i],
         };
         allResult.push(objectFromLink);
       });
-      // console.log(allResult)
     } else if (t.match(regex).length === 1) {
-      // console.log(t.match(regex).length);
-      link = t.match(regex).map((v) => v.split("](")[1].slice(0, -1));
+     const link = t.match(regex).map((v) => v.split("](")[1].slice(0, -1));
 
-      text = t.match(regex).map((v) => v.split("](")[0].slice(1));
+     const text = t.match(regex).map((v) => v.split("](")[0].slice(1));
 
-      objectFromOneLink = {
+     const objectFromOneLink = {
         href: link[0],
         text: text[0],
         path: array[i],
@@ -83,13 +76,10 @@ export const findLinks = (array) => {
       allResult.push(objectFromOneLink);
     }
   });
-// console.log(allResult)
   return allResult;
 };
 
-
 export const stats = (arrayStates) => {
-  // console.log(arrayStates)
   const links = [];
   arrayStates.forEach((item) => links.push(item.href));
   let unicos = new Set(links);
@@ -107,8 +97,6 @@ export const stats = (arrayStates) => {
       contador = 1;
     }
   }
-  // console.log(unicosElementos);
-  // console.log(almacenador);
 
   const unique = almacenador.filter((item) => item == 1);
   const repetidos = almacenador.filter((item) => item > 1);
@@ -120,12 +108,10 @@ export const stats = (arrayStates) => {
       unique: unique.length,
     },
   ];
-// console.log(arrayStats)
   return arrayStats;
 };
 
 export const statsValidate = (arrayStates) => {
-  // console.log(arrayStates)
   const linksRotos = arrayStates.filter((item) => item.state === 404);
 
   const links = [];
@@ -145,12 +131,9 @@ export const statsValidate = (arrayStates) => {
       contador = 1;
     }
   }
-  // console.log(unicosElementos);
-  // console.log(almacenador);
 
   const unique = almacenador.filter((item) => item == 1);
   const repetidos = almacenador.filter((item) => item > 1);
-  // console.log(unique.length)
 
   const objectStats = [
     {
@@ -160,12 +143,11 @@ export const statsValidate = (arrayStates) => {
       broken: linksRotos.length,
     },
   ];
-// console.log(objectStats)
   return objectStats;
 };
 
 export const statsPlus = (arrayStates) => {
-  console.log(arrayStates)
+  // console.log(arrayStates);
   const array = [];
   const links = [];
   arrayStates.forEach((item) => links.push(item.href));
@@ -191,10 +173,5 @@ export const statsPlus = (arrayStates) => {
     };
     array.push(object);
   }
-  console.log(array)
-  return  (array)
+  return array;
 };
-
-
-
-

@@ -1,6 +1,8 @@
 export default {
 	'env': {
 		'browser': true,
+    'jest':true,
+    // 'commonjs':true,
 		'es2021': true
 	},
 	'extends': 'eslint:recommended',

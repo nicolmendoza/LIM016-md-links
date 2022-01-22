@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { mdlinks } from "./index.js";
 import path from "path";
 import figlet from "figlet";
@@ -17,6 +19,7 @@ import {
 import { findStatus } from "./functions/cli-function.js";
 
 import {
+  convertToArrayPlus,
   convertToArrayBasic,
   convertToArrayValidate,
   convertToArrayStats,
@@ -33,28 +36,32 @@ import inquirer from "inquirer";
 import { table } from "table";
 
 const help = [
-  ["option: --basic", "Shows basic information about your files"],
+  [`${chalk.italic.magentaBright("Option: --basic")}`, `${chalk.italic.blue("Shows basic information about your files")}`],
   [
-    "option: --validate",
-    "Shows status information about links e.g OK, FAIL status",
+    `${chalk.italic.magentaBright("Option: --validate")}`,
+    `${chalk.italic.blue("Shows status information about links e.g OK, FAIL, status")}`,
   ],
   [
-    "option: --stats",
-    "Shows statistical information (Total links, Unique links)",
+    `${chalk.italic.magentaBright("Option: --stats")}`,
+    `${chalk.italic.blue("Shows statistical information (Total links, Unique links)")}`,
   ],
   [
-    "option: --validate & --stats ",
-    "Shows statistical information (Total links, Unique links, Broken links)",
+    `${chalk.italic.magentaBright("Option: --validate & --stats ")}`,
+    `${chalk.italic.blue("Shows statistical information (Total links, Unique links, Broken links)")}`,
+  ],
+  [
+    `${chalk.italic.magentaBright("Option: --statsPlus ")}`,
+    `${chalk.italic.blue("Shows information about the number of times the links appear")}`,
   ],
 ];
 
 const config = {
   // singleLine: true,
   columns: {
-    0: { width: 30 },
-    1: { width: 30 },
-    2: { width: 30 },
-    3: { width: 10 },
+    0: { width: 20 },
+    1: { width: 20 },
+    2: { width: 25 },
+    3: { width: 8 },
     4: { width: 10 },
   },
 };
@@ -78,29 +85,28 @@ const configHelp = {
   },
 };
 
-// const config = {
-//   // singleLine: true,
-//   columns: {
-//     0: { width: 30 },
-//     1: { width: 30 },
-//     2: { width: 30 },
-//     3: { width: 10 },
-//     4: { width: 10 },
-//   },
-// };
+const configBasic = {
+  // singleLine: true,
+  columns: {
+    0: { width: 30 },
+    1: { width: 30 },
+    2: { width: 30 }
+  },
+};
 
 // console.log(table(data, config));
 
 const banner = () => {
   figlet("Markdown Links", function (err, data) {
+
     if (err) {
       console.log("Something went wrong...");
       console.dir(err);
       return;
     }
 
-    console.log(`${chalk.dim.yellowBright(data)}`);
-    console.log("Wait a moment...");
+    console.log(`${chalk.bold.yellowBright(data)}`);
+    console.log(`${chalk.bold.greenBright("Wait a moment...")}`);
     // return callback()
   });
 };
@@ -122,7 +128,7 @@ inquirer
         "--stats",
         "--validate & --stats",
         "--statsPlus",
-        "Please, help",
+        "--Please, help",
       ],
     },
   ])
@@ -130,31 +136,88 @@ inquirer
     if (answer.choose === "Please, help") {
       console.log(table(help));
     } else {
-      banner();
       mdlinks(answer.path, answer.choose)
         .then((allResult) => {
           if (answer.choose === "--basic") {
-            setTimeout(
-              () => console.log(table(convertToArrayBasic(allResult), config)),
-              2000
-            );
+            banner();
+            if (allResult.length == 0) {
+              setTimeout(
+                () =>
+                  console.log(
+                    `${chalk.bold.blue("It was not possible to find md files containing links to extract")}`
+                  ),
+                2000
+              );
+            } else {
+              setTimeout(
+                () =>
+                  console.log(table(convertToArrayBasic(allResult), configBasic)),
+                2000
+              );
+            }
           } else if (answer.choose === "--validate") {
-            // convertToArrayValidate
-            findStatus(allResult).then((x) =>
-              console.log(table(convertToArrayValidate(x), config))
-            );
+            banner();
+            if (allResult.length == 0) {
+              setTimeout(
+                () =>
+
+                  console.log(
+                    `${chalk.bold.blue("It was not possible to find md files containing links to extract")}`                  ),
+                2000
+              );
+            } else {
+
+              findStatus(allResult).then((x) =>
+                console.log(table(convertToArrayValidate(x), config))
+              );
+            }
           } else if (answer.choose === "--stats") {
-            findStatus(allResult).then((x) => {
-              const array = convertToArrayStats(stats(x));
-              console.log(table(array, config));
-            });
+            banner();
+
+            if (allResult.length == 0) {
+              setTimeout(
+                () =>
+                  console.log(
+                    `${chalk.bold.blue("It was not possible to find md files containing links to extract")}`                  ),
+                2000
+              );
+            } else {
+              findStatus(allResult).then((x) => {
+                const array = convertToArrayStats(stats(x));
+                console.log(table(array, config));
+              });
+            }
           } else if (answer.choose === "--validate & --stats") {
-            findStatus(allResult).then((x) => {
-              const array = convertToArrayStatsValidate(statsValidate(x));
-              console.log(table(array, configStats));
-            });
+            banner();
+
+            if (allResult.length == 0) {
+              setTimeout(
+                () =>
+                  console.log(
+                    `${chalk.bold.blue("It was not possible to find md files containing links to extract")}`                  ),
+                2000
+              );
+            } else {
+              findStatus(allResult).then((x) => {
+                const array = convertToArrayStatsValidate(statsValidate(x));
+                console.log(table(array, configStats));
+              });
+            }
           } else if (answer.choose === "--statsPlus") {
-            findStatus(allResult).then((x) => console.log(statsPlus(x)) );
+            banner();
+
+            if (allResult.length == 0) {
+              setTimeout(
+                () =>
+                  console.log(
+                    `${chalk.bold.blue("It was not possible to find md files containing links to extract")}`                  ),
+                2000
+              );
+            } else {
+              findStatus(allResult).then((x) =>
+                {const array=convertToArrayPlus(statsPlus(x));
+                console.log(table(array,configBasic))})
+            }
           }
         })
         .catch((error) => console.log(error));

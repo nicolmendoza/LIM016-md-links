@@ -1,9 +1,10 @@
 import axios from "axios";
 
-const resultState = [];
+
 export const findStatus = (allResult) => {
+  const resultState = [];
   return new Promise((resolve, reject) => {
-    const hola = allResult.map((item) => {
+    const result = allResult.map((item) => {
       return axios
         .get(item.href)
         .then((x) => {
@@ -21,6 +22,6 @@ export const findStatus = (allResult) => {
         });
       // .then(x=>console.log(x))
     });
-    Promise.all(hola).then(() => resolve(resultState));
+    Promise.all(result).then(() => resolve(resultState));
   });
 };

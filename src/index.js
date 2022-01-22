@@ -19,10 +19,10 @@ export const mdlinks = (ruta, option) => {
         const allResult = findLinks(pathsFind);
         resolve(allResult);
       } else {
-        reject("Error:la ruta no existe");
+        reject("Error: The path does not exist , please enter a valid path");
       }
     } else {
-      reject("Error:ingrese una ruta");
+      reject("Error: Please enter a valid path");
     }
   });
 };
