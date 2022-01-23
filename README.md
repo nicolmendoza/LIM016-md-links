@@ -7,13 +7,11 @@
     * [ Instalación ](#Instalación)
     * [ Uso ](#Uso)
     * [ Opciones ](#Opciones)
-    * [ Diagrama de flujo ](#Diagrama de flujo)
+    * [ Diagrama de flujo ](#Diagrama-de-flujo)
     * [ Documentación técnica de la biblioteca. ](#Documentacion-tecnica-de-la-biblioteca)
     * [ Prueba ](#Prueba)
 * [ Proyecto ](#Proyecto)
     
-
-
 ##  Descripción
 
 Markdown-links-library  es una libreria que te permite leer , analizar y reportar un analisis de los links que se encuentran en archivos Markdown. 
@@ -35,10 +33,7 @@ Markdown-links-library  es una libreria que te permite leer , analizar y reporta
 npm i markdown-links-library
 ```
 
-
-** `mdLinks` ** funciona si ya tiene instalado nodejs y, por lo tanto, también npm, que se instala junto con node.
-
-Este módulo incluye un ejecutable y una interfaz que podemos importar para usarlo programáticamente.
+** `md-links` ** funciona si ya tiene instalado nodejs y, por lo tanto, también npm, que se instala junto con node.
 
 
 ###  Uso
@@ -47,18 +42,18 @@ Este módulo incluye un ejecutable y una interfaz que podemos importar para usar
 
 Para ejecutar la libreria utiliza este comando:
 
-```bash
+```
 $  md-links 
 ```
 
 ####  CLI (interfaz de línea de comandos)
 
 Después de iniciar la libreria :
-1. Introduzca su ruta absoluta/relativa
-2. Eliga la opción de tu preferencia (--basic , --validate ,--stats ,--validate & --stats , --statsPlus)
+* Introduzca su ruta absoluta/relativa
+* Eliga la opción de tu preferencia (--basic , --validate ,--stats ,--validate & --stats , --statsPlus)
 
 
-> Si necesitas información acerca de las opciones ,  seleccione la última opción **Please, help**
+> Si necesitas información acerca de las opciones ,  seleccione la última opción **--Please, help**
 
 
 ###  Opciones
@@ -82,30 +77,33 @@ Con la opción -- stats obtendremos información acerca del número total de lin
 
 Al combinar las opciones de --stats y --validate obtendremos información acerca del  número total de links , links únicos , links repetidos y links rotos que se encuentran en el ruta que se ha analizado.
 
+####   --StatsPlus
+
+Al usar la opción --StatsPlus obtendremos información acerca del número de veces en que aprarece cada link.
 
 ###  Diagrama de flujo
 A continuacion se muestran los diagramas de flujo de la API  y del CLI
 
 ####  API de diagrama de flujo
 
+<div align=center><img src="https://user-images.githubusercontent.com/87873460/150701174-91fe5998-4399-4ea1-bd56-f806d48a7227.png" width=60%></div>
 
 ####  Diagrama de flujo CLI
 
 
-
-
+<div align=center><img src="https://user-images.githubusercontent.com/87873460/150701263-6b718b12-3633-4c90-84dc-b80aeafd6904.png" width=100%></div>
 
 
 
 ###  Documentación técnica de la biblioteca
--JavaScript
--Nodoe.js
--Inquirer
--Table
--Mocks
--RegEx
--Chalk
--Babel
+- JavaScript
+- Nodoe.js
+- Inquirer
+- Table
+- Mocks
+- RegEx
+- Chalk
+- Babel
 
 
 #  Autor
