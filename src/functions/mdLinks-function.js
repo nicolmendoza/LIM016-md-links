@@ -106,6 +106,7 @@ export const stats = (arrayStates) => {
     {
       total: arrayStates.length,
       unique: unique.length,
+      repetidos: repetidos.length,
     },
   ];
   return arrayStats;
@@ -147,7 +148,6 @@ export const statsValidate = (arrayStates) => {
 };
 
 export const statsPlus = (arrayStates) => {
-  // console.log(arrayStates);
   const array = [];
   const links = [];
   arrayStates.forEach((item) => links.push(item.href));

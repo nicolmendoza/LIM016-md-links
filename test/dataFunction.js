@@ -36,7 +36,7 @@ export const arrayStats = [
   },
 ];
 
-export const arrayStatsResult = [{ total: 1, unique: 1 }];
+export const arrayStatsResult = [{repetidos:0 , total: 1, unique: 1 }];
 
 export const arrayStatsValidate = [
   {
@@ -155,7 +155,7 @@ export const arrayStats2=[
     textState: 'ok'
   }
 ]
-export const arrayStats2Result=[ { total: 3, unique: 1 } ]
+export const arrayStats2Result=[ {repetidos:1, total: 3, unique: 1 } ]
 
 export const arrayStatsValidate2=[
   {

@@ -60,6 +60,7 @@ const arrayTotalStats = [
   [
     `${chalk.italic.magenta("Total Links")}`,
     `${chalk.italic.magenta("Unique Links")}`,
+    `${chalk.italic.magenta("Repeated Links")}`,
   ],
 ];
 export const convertToArrayStats = (array) => {
@@ -67,6 +68,7 @@ export const convertToArrayStats = (array) => {
     const newArray = [
       `${chalk.bold.cyanBright(item.total)}`,
       `${chalk.bold.cyanBright(item.unique)}`,
+      `${chalk.bold.cyanBright(item.repetidos)}`
     ];
     arrayTotalStats.push(newArray);
   });
