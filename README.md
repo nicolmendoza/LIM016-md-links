@@ -1,18 +1,17 @@
 
 # MARKDOW LINKS
 
-##  Tabla de contenido
-* [ Deficición ](#Deficición)
+##  Tabla de contenido 
+* [ Descripción ](#Descripción)
 * [ Documentación ](#Documentación)
     * [ Instalación ](#Instalación)
     * [ Uso ](#Uso)
     * [ Opciones ](#Opciones)
     * [ Diagrama de flujo ](#Diagrama-de-flujo)
     * [ Documentación técnica de la biblioteca. ](#Documentacion-tecnica-de-la-biblioteca)
-    * [ Prueba ](#Prueba)
-* [ Proyecto ](#Proyecto)
+* [ Autore ](#Autor)
     
-##  Descripción
+##  Descripción ✏ 
 
 Markdown-links-library  es una libreria que te permite leer , analizar y reportar un analisis de los links que se encuentran en archivos Markdown. 
 
@@ -23,9 +22,9 @@ Markdown-links-library  es una libreria que te permite leer , analizar y reporta
 - Validar enlaces que se encientran en los archivos .md
 - Reportar links repetidos.
 
-##  Documentación
+##  Documentación 📝
 
-###  Instalación
+###  Instalación 🖥
 
 * Instalar por npm: 
 
@@ -38,7 +37,7 @@ npm i markdown-links-library
 
 ###  Uso
 
-####  API 
+####  API 📁
 
 Para ejecutar la libreria utiliza este comando:
 
@@ -46,7 +45,7 @@ Para ejecutar la libreria utiliza este comando:
 $  md-links 
 ```
 
-####  CLI (interfaz de línea de comandos)
+####  CLI (interfaz de línea de comandos) 📁
 
 Después de iniciar la libreria :
 * Introduzca su ruta absoluta/relativa
@@ -54,41 +53,50 @@ Después de iniciar la libreria :
 
 
 > Si necesitas información acerca de las opciones ,  seleccione la última opción **--Please, help**
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/help.gif" width=70% border="2px solid blue"></div>
 
+###  Opciones 🔨
 
-###  Opciones
-
-####  --Basic
+####  --Basic 💡
 
 La opción --basic muestra información general acerca de los links que se encuentran en los archivos Markdown  . Obtendremos información acerca de  la ruta del archivo , los enlaces que se encuentren y los textos de los enlaces.
 
 
-####  --Validate
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/basic%20(1).gif" width=70%></div>
+
+####  --Validate 💡
 
 La opción --validate , aparte de mostrar la información general del link (la ruta del archivo , los enlaces que se encuentren y los textos de los enlaces) se encarga de realizar la solicitud HTTP para saber el estado del link. Si el enlace funciona correctamente obtendremos un status de 200 y un texto de ok , si el enlace falla , el status será de 404 y el texto será de fail.
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/validateStats.gif" width=70%></div>
 
-
-####  --Stats
+####  --Stats 💡
 
 Con la opción -- stats obtendremos información acerca del número total de links , links únicos y links repetidos  que se encuentran en el ruta que se ha analizado.
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/stats.gif" width=70%></div>
 
 
-####  --Validate  & --Stats
+####  --Validate  & --Stats 💡
 
 Al combinar las opciones de --stats y --validate obtendremos información acerca del  número total de links , links únicos , links repetidos y links rotos que se encuentran en el ruta que se ha analizado.
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/validateStats.gif" width=70%></div>
 
-####   --StatsPlus
+
+####   --StatsPlus 💡
 
 Al usar la opción --StatsPlus obtendremos información acerca del número de veces en que aprarece cada link.
 
-###  Diagrama de flujo
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/statsPlus.gif" width=70%></div>
+
+
+
+###  Diagrama de flujo ➡⬆➡
 A continuacion se muestran los diagramas de flujo de la API  y del CLI
 
-####  API de diagrama de flujo
+####  API de diagrama de flujo ◀ ▶
 
-<div align=center><img src="https://user-images.githubusercontent.com/87873460/150701174-91fe5998-4399-4ea1-bd56-f806d48a7227.png" width=60%></div>
+<div align=center><img src="https://user-images.githubusercontent.com/87873460/150701174-91fe5998-4399-4ea1-bd56-f806d48a7227.png" width=60% ></div>
 
-####  Diagrama de flujo CLI
+####  Diagrama de flujo CLIx ◀ ▶
 
 
 <div align=center><img src="https://user-images.githubusercontent.com/87873460/150701263-6b718b12-3633-4c90-84dc-b80aeafd6904.png" width=100%></div>
@@ -96,18 +104,18 @@ A continuacion se muestran los diagramas de flujo de la API  y del CLI
 
 
 ###  Documentación técnica de la biblioteca
-- JavaScript
-- Nodoe.js
-- Inquirer
-- Table
-- Mocks
-- RegEx
-- Chalk
-- Babel
+-✅ JavaScript
+-✅ Nodoe.js
+-✅ Inquirer
+-✅ Table
+-✅ Mocks
+-✅ RegEx
+-✅ Chalk
+-✅ Babel
 
 
 #  Autor
 
-Nicol Lesly Mendoza Mattos
+- [Nicol Mendoza](https://github.com/nicolmendoza) <img src="https://cdn-icons-png.flaticon.com/512/2570/2570280.png" width=20px>
 
 
