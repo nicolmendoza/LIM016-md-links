@@ -9,9 +9,9 @@
     * [ Opciones ](#Opciones)
     * [ Diagrama de flujo ](#Diagrama-de-flujo)
     * [ Documentación técnica de la biblioteca. ](#Documentacion-tecnica-de-la-biblioteca)
-* [ Autore ](#Autor)
+* [ Autor ](#Autor)
     
-##  Descripción ✏ 
+##  1. Descripción ✏ 
 
 Markdown-links-library  es una libreria que te permite leer , analizar y reportar un analisis de los links que se encuentran en archivos Markdown. 
 
@@ -22,9 +22,9 @@ Markdown-links-library  es una libreria que te permite leer , analizar y reporta
 - Validar enlaces que se encientran en los archivos .md
 - Reportar links repetidos.
 
-##  Documentación 📝
+##  2. Documentación 📝
 
-###  Instalación 🖥
+###  2.1 Instalación 🖥
 
 * Instalar por npm: 
 
@@ -35,7 +35,7 @@ npm i markdown-links-library
 ** `md-links` ** funciona si ya tiene instalado nodejs y, por lo tanto, también npm, que se instala junto con node.
 
 
-###  Uso
+###  2.2 Uso🖥
 
 ####  API 📁
 
@@ -55,7 +55,7 @@ Después de iniciar la libreria :
 > Si necesitas información acerca de las opciones ,  seleccione la última opción **--Please, help**
 <div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/help.gif" width=100% ></div>
 
-###  Opciones 🔨
+###  2.3 Opciones 🔨
 
 ####  --Basic 💡
 
@@ -67,7 +67,7 @@ La opción --basic muestra información general acerca de los links que se encue
 ####  --Validate 💡
 
 La opción --validate , aparte de mostrar la información general del link (la ruta del archivo , los enlaces que se encuentren y los textos de los enlaces) se encarga de realizar la solicitud HTTP para saber el estado del link. Si el enlace funciona correctamente obtendremos un status de 200 y un texto de ok , si el enlace falla , el status será de 404 y el texto será de fail.
-<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/validateStats.gif" width=70%></div>
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/validateStats.gif" width=100%></div>
 
 ####  --Stats 💡
 
@@ -89,7 +89,7 @@ Al usar la opción --StatsPlus obtendremos información acerca del número de ve
 
 
 
-###  Diagrama de flujo ➡⬆➡
+###  2.4 Diagrama de flujo ➡⬆➡
 A continuacion se muestran los diagramas de flujo de la API  y del CLI
 
 ####  API de diagrama de flujo ◀ ▶
@@ -103,18 +103,18 @@ A continuacion se muestran los diagramas de flujo de la API  y del CLI
 
 
 
-###  Documentación técnica de la biblioteca
--✅ JavaScript
--✅ Nodoe.js
--✅ Inquirer
--✅ Table
--✅ Mocks
--✅ RegEx
--✅ Chalk
--✅ Babel
+###  2.5 Documentación técnica de la biblioteca
+- ✅ JavaScript
+- ✅ Nodoe.js
+- ✅ Inquirer
+- ✅ Table
+- ✅ Mocks
+- ✅ RegEx
+- ✅ Chalk
+- ✅ Babel
 
 
-#  Autor
+### 3. Autor
 
 - [Nicol Mendoza](https://github.com/nicolmendoza) <img src="https://cdn-icons-png.flaticon.com/512/2570/2570280.png" width=20px>
 
