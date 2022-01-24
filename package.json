@@ -1,6 +1,6 @@
 {
   "name": "markdown-links-library",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Markdown Links Library es una herramienta que lee , analiza y reporta una estadística  de los links que se encuentran en archivos Markdown",
   "main": "cli.js",
   "type": "module",
