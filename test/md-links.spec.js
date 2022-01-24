@@ -38,22 +38,22 @@ import {
 } from "./dataFunction.js";
 import { mdlinks } from "../src/index.js";
 
-describe("convert to absolute rute", () => {
-  it("is a function", () => {
+describe("verifica si la ruta ingresada es absoluta", () => {
+  it("es una funciòn", () => {
     expect(typeof verificarRutaAbsoluta).toBe("function");
   });
 
-  it("debe retornar una ruta absoluta al ser una ruta relativa", () => {
+  it("debe retornar una ruta absoluta al ingresar una ruta relativa", () => {
     expect(verificarRutaAbsoluta(linkRelative)).toBe(linkAbsolute);
   });
 
-  it("debe de retornar la ruta absoluta", () => {
+  it("debe retornar una ruta absoluta al ingresar una ruta absoluta", () => {
     expect(verificarRutaAbsoluta(linkAbsolute)).toBe(linkAbsolute);
   });
 });
 
 describe("verifica si la ruta existe", () => {
-  it("is a function", () => {
+  it("es una funciòn", () => {
     expect(typeof verificarSiExisteRuta).toBe("function");
   });
 
@@ -62,36 +62,36 @@ describe("verifica si la ruta existe", () => {
   });
 });
 
-describe("verifica si la ruta existe", () => {
+describe("verifica si la ruta que ingresa es un archivo", () => {
   it("is a function", () => {
     expect(typeof verificarSiEsArchivo).toBe("function");
   });
 
-  it("debe retornar true si la ruta existe", () => {
+  it("debe retornar true si la ruta ingresada es de un archivo", () => {
     expect(verificarSiEsArchivo(linkAbsolute)).toBeTruthy();
   });
 });
 
-describe("verifica si la ruta existe", () => {
-  it("is a function", () => {
+describe("verifica que el tipo del archivo es .md", () => {
+  it("es una funcion", () => {
     expect(typeof verificarTipo).toBe("function");
   });
 
-  it("debe retornar true si la ruta existe", () => {
+  it("debe retornar .md si la ruta del archivo es .md", () => {
     expect(verificarTipo(linkAbsolute)).toBe(".md");
   });
 });
 
-describe("extrae archivos", () => {
-  it("is a function", () => {
+describe("se extraen los archivos de la ruta ingresada", () => {
+  it("es una función", () => {
     expect(typeof extraerArchivos).toBe("function");
   });
 
-  it("verifica que la ruta pertenezca a un archivo md", () => {
+  it("Al ingresar la ruta de un archivo me devuelve un array con la direcciòn", () => {
     expect(extraerArchivos(linkAbsolute)).toStrictEqual([linkAbsolute]);
   });
 
-  it("extrae archivos de un directorio", () => {
+  it("Al ingresar la ruta de un directorio me devuelve un array con las direcciones de los archivos que contiene", () => {
     expect(extraerArchivos(linkAbsoluteDir)).toStrictEqual([
       linkAbsolute,
       linkAbsolute,
@@ -100,93 +100,83 @@ describe("extrae archivos", () => {
   });
 });
 
-describe("encunetra links", () => {
-  it("is a function", () => {
+describe("findLinks extrae los links , el texto del link , y la dirección del archivo ", () => {
+  it("es una funciòn", () => {
     expect(typeof findLinks).toBe("function");
   });
 
-  it("verifica que la ruta pertenezca a un archivo md", () => {
+  it("debe de retornarme un array con el link, texto y dirección del archivo que tiene un  solo un link", () => {
     expect(findLinks(arrayPath)).toStrictEqual(resultBasic);
   });
-  it("verifica que la ruta pertenezca a un archivo md", () => {
+  it("debe de retornar un array vacio al no tener links el archivo", () => {
     expect(findLinks(arrayFindLinks)).toStrictEqual(arrayFindLinksResult);
   });
-  it("verifica que la ruta pertenezca a un archivo md", () => {
+  it("debe de retornar un array con los links, textos y dirección del archivo que tiene varios links", () => {
     expect(findLinks(arrayFindLinks2)).toStrictEqual(arrayFindLinksResult2);
   });
 });
 
-describe("encunetra links", () => {
-  it("is a function", () => {
+describe("me devuelve un array con información de los números de links repetidos, totales y únicos ", () => {
+  it("es una función", () => {
     expect(typeof stats).toBe("function");
   });
 
-  it("verifica que la ruta pertenezca a un archivo md", () => {
+  it("al pasar un array con información de un solo link me devuelve el número de links repetidos, totales y únicos", () => {
     expect(stats(arrayStats)).toStrictEqual(arrayStatsResult);
   });
 
-  it("verifica que la ruta pertenezca a un archivo md", () => {
+  it("al pasar un array con información de varios links me devuelve el número de los links repetidos, totales y únicos", () => {
     expect(stats(arrayStats2)).toStrictEqual(arrayStats2Result);
   });
 });
 
-// stats
 
-describe("encunetra links", () => {
-  it("is a function", () => {
+describe(" StatsValidate me devuelve un array con información del número total de links, links únicos, links repetidos, y links rotos ",() => {
+  it("es una función", () => {
     expect(typeof statsValidate).toBe("function");
   });
 
-  it("verifica que la ruta pertenezca a un archivo md", () => {
+  it("me devuelve un array con información del número total de links, links únicos, links repetidos, y links rotos", () => {
     expect(statsValidate(arrayStatsValidate)).toStrictEqual(
       arrayStatsValidateResult
     );
   });
-  it("verifica que la ruta pertenezca a un archivo md", () => {
+  it("me devuelve un array con información del número total de links, links únicos, links repetidos, y links rotos", () => {
     expect(statsValidate(arrayStatsValidate2)).toStrictEqual(
       arrayStatsValidateResult2
     );
   });
 });
 
-describe("encunetra links", () => {
-  it("is a function", () => {
+describe("La función statsPlus me devuelve información del número de veces en que aparece cada Link", () => {
+  it("es una función", () => {
     expect(typeof statsPlus).toBe("function");
   });
 
-  it("verifica que la ruta pertenezca a un archivo md", () => {
+  it("me devuelve un array con el link y el número de veces que aparece el link ingresado", () => {
     expect(statsPlus(arrayStatsPlus)).toStrictEqual(arrayStatsPlusResult);
   });
-  it("verifica que la ruta pertenezca a un archivo md", () => {
+  it("me devuelve un array con los links y el número de veces que aparece los links ingresados", () => {
     expect(statsPlus(arrayStatsPlus2)).toStrictEqual(arrayStatsPlusResult2);
   });
 });
 
-describe("encunetra links", () => {
-  it("is a function", () => {
-    expect(typeof statsPlus).toBe("function");
-  });
-
-  it("verifica que la ruta pertenezca a un archivo md", () => {
-    expect(statsPlus(arrayStatsPlus)).toStrictEqual(arrayStatsPlusResult);
-  });
-});
 
 describe("La función mdLinks", () => {
-  it("is a function", () => {
+  it("es una función", () => {
     expect(typeof mdlinks).toBe("function");
   });
 
-  test(' promesa que se resuelve con  un array de objetos ', () => {
+  test('Es una promesa que se resuelve con  un array de objetos ', () => {
     return expect(mdlinks('./test', '')).toBeInstanceOf(Promise);
   });
 
-  it("Promise test case NO LINKS", () => {
+  it("me devuelve un error al ingresar una ruta no válida", () => {
     return mdlinks().catch((err) => {
       expect(err).toEqual('Error: Please enter a valid path')
     });
   })
-  it("Promise test case NO LINKS", () => {
+  it("me devuelve un error al ingresar una ruta que no existe", () => {
     return mdlinks("ruta", "").catch((err) => {
       expect(err).toEqual('Error: The path does not exist , please enter a valid path')
     });
