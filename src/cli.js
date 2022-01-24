@@ -43,11 +43,11 @@ const help = [
   ],
   [
     `${chalk.italic.magentaBright("Option: --stats")}`,
-    `${chalk.italic.blue("Shows statistical information (Total links, Unique links)")}`,
+    `${chalk.italic.blue("Shows statistical information (Total links, Unique links, Repeated links)")}`,
   ],
   [
     `${chalk.italic.magentaBright("Option: --validate & --stats ")}`,
-    `${chalk.italic.blue("Shows statistical information (Total links, Unique links, Broken links)")}`,
+    `${chalk.italic.blue("Shows statistical information (Total links, Unique links, Broken links , Repeated links)")}`,
   ],
   [
     `${chalk.italic.magentaBright("Option: --statsPlus ")}`,
@@ -133,7 +133,7 @@ inquirer
     },
   ])
   .then((answer) => {
-    if (answer.choose === "Please, help") {
+    if (answer.choose === "--Please, help") {
       console.log(table(help));
     } else {
       mdlinks(answer.path, answer.choose)
