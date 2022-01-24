@@ -1,5 +1,5 @@
 
-# MARKDOW LINKS
+<div align=center><img src="https://user-images.githubusercontent.com/87873460/150710670-c108f334-2389-4747-a7b4-80b99909127f.png" width=100% ></div>
 
 ##  Tabla de contenido 
 * [ Descripción ](#Descripción)
@@ -53,7 +53,7 @@ Después de iniciar la libreria :
 
 
 > Si necesitas información acerca de las opciones ,  seleccione la última opción **--Please, help**
-<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/help.gif" width=70% border="2px solid blue"></div>
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/help.gif" width=100% ></div>
 
 ###  Opciones 🔨
 
@@ -62,7 +62,7 @@ Después de iniciar la libreria :
 La opción --basic muestra información general acerca de los links que se encuentran en los archivos Markdown  . Obtendremos información acerca de  la ruta del archivo , los enlaces que se encuentren y los textos de los enlaces.
 
 
-<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/basic%20(1).gif" width=70%></div>
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/basic%20(1).gif" width=100%></div>
 
 ####  --Validate 💡
 
@@ -72,20 +72,20 @@ La opción --validate , aparte de mostrar la información general del link (la r
 ####  --Stats 💡
 
 Con la opción -- stats obtendremos información acerca del número total de links , links únicos y links repetidos  que se encuentran en el ruta que se ha analizado.
-<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/stats.gif" width=70%></div>
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/stats.gif" width=100%></div>
 
 
 ####  --Validate  & --Stats 💡
 
 Al combinar las opciones de --stats y --validate obtendremos información acerca del  número total de links , links únicos , links repetidos y links rotos que se encuentran en el ruta que se ha analizado.
-<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/validateStats.gif" width=70%></div>
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/validateStats.gif" width=100%></div>
 
 
 ####   --StatsPlus 💡
 
 Al usar la opción --StatsPlus obtendremos información acerca del número de veces en que aprarece cada link.
 
-<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/statsPlus.gif" width=70%></div>
+<div align=center><img src="https://github.com/nicolmendoza/LIM016-md-links/blob/main/src/images/statsPlus.gif" width=100%></div>
 
 
 
